@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildMaster Construction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Advanced 3D and Animation Effects */
+        @keyframes floatOrbit {
+            0% {
+                transform: translateY(0) translateX(0) rotateX(5deg) rotateY(5deg);
+            }
+
+            25% {
+                transform: translateY(-15px) translateX(10px) rotateX(-5deg) rotateY(10deg);
+            }
+
+            50% {
+                transform: translateY(-25px) translateX(0) rotateX(5deg) rotateY(-5deg);
+            }
+
+            75% {
+                transform: translateY(-15px) translateX(-10px) rotateX(-5deg) rotateY(-10deg);
+            }
+
+            100% {
+                transform: translateY(0) translateX(0) rotateX(5deg) rotateY(5deg);
+            }
+        }
+
+        @keyframes zoomReveal {
+            from {
+                transform: scale(0.9) translateZ(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) translateZ(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes glowPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 15px rgba(255, 165, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(255, 165, 0, 0.8), 0 0 50px rgba(255, 215, 0, 0.5);
+            }
+        }
+
+        @keyframes bgShift {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            50% {
+                background-position: 100% 100%;
+            }
+
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
+        .float-orbit {
+            animation: floatOrbit 6s ease-in-out infinite;
+        }
+
+        .zoom-reveal {
+            animation: zoomReveal 1s ease-out forwards;
+        }
+
+        .glow-pulse {
+            animation: glowPulse 2s infinite;
+        }
+
+        .bg-shift {
+            animation: bgShift 15s infinite;
+        }
+
+        .perspective {
+            perspective: 1200px;
+        }
+
+        .hover-3d:hover {
+            transform: translateZ(30px) rotateX(15deg) rotateY(5deg);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        }
+
+        .frosted-card {
+            background: rgba(30, 30, 30, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .frosted-card:hover {
+            background: rgba(40, 40, 40, 0.25);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.15);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-950 text-white font-sans antialiased overflow-x-hidden">
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-xl py-5 shadow-2xl transition-all">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <h1
+                class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-yellow-400 to-orange-500 animate-pulse">
+                BuildMaster</h1>
+            <nav class="hidden md:flex space-x-12">
+                <a href="#home"
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Home</a>
+                <a href="#services"
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Services</a>
+                <a href="#projects"
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Projects</a>
+                <a href="#testimonials"
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Testimonials</a>
+                <a href="#team"
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Team</a>
+                <a href="#contact"
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Contact</a>
+            </nav>
+            <button class="md:hidden text-3xl text-orange-400 hover:text-orange-500 transition-colors">☰</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home"
+        class="min-h-screen flex items-center justify-center relative bg-[url('https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center bg-shift">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+        <div class="container mx-auto px-6 text-center relative z-10 perspective">
+            <h2
+                class="text-6xl md:text-9xl font-extrabold tracking-tighter text-orange-400 drop-shadow-2xl zoom-reveal">
+                Architects of Tomorrow</h2>
+            <p class="text-2xl md:text-4xl max-w-4xl mx-auto mt-6 text-gray-100 drop-shadow-lg zoom-reveal"
+                style="animation-delay: 0.3s;">Where innovation meets steel—building your legacy with unmatched
+                precision.</p>
+            <a href="#contact"
+                class="mt-12 inline-block bg-gradient-to-r from-orange-500 to-yellow-400 text-black px-12 py-5 rounded-full text-2xl font-bold shadow-2xl glow-pulse hover:scale-110 transition-transform">Unleash
+                Your Vision</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-32 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20 zoom-reveal">Our Expertise</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 perspective">
+                <div class="frosted-card rounded-3xl overflow-hidden hover-3d">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Residential" class="w-full h-72 object-cover float-orbit">
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold text-orange-400">Residential</h3>
+                        <p class="text-gray-200 mt-3">Futuristic homes that redefine living.</p>
+                    </div>
+                </div>
+                <div class="frosted-card rounded-3xl overflow-hidden hover-3d">
+                    <img src="https://images.unsplash.com/photo-1486328228599-85db4443971f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Commercial" class="w-full h-72 object-cover float-orbit">
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold text-orange-400">Commercial</h3>
+                        <p class="text-gray-200 mt-3">Iconic spaces for bold businesses.</p>
+                    </div>
+                </div>
+                <div class="frosted-card rounded-3xl overflow-hidden hover-3d">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Renovations" class="w-full h-72 object-cover float-orbit">
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold text-orange-400">Renovations</h3>
+                        <p class="text-gray-200 mt-3">Transforming the old into extraordinary.</p>
+                    </div>
+                </div>
+                <div class="frosted-card rounded-3xl overflow-hidden hover-3d">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Custom" class="w-full h-72 object-cover float-orbit">
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold text-orange-400">Custom</h3>
+                        <p class="text-gray-200 mt-3">Bespoke builds, limitless possibilities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-32 bg-gradient-to-t from-gray-950 to-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20 zoom-reveal">Our Creations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 perspective">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl hover-3d">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Skyline Towers" class="w-full h-96 object-cover float-orbit">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex items-end p-8">
+                        <h3 class="text-4xl font-bold text-orange-400">Skyline Towers</h3>
+                    </div>
+                </div>
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl hover-3d">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Urban Loft" class="w-full h-96 object-cover float-orbit">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex items-end p-8">
+                        <h3 class="text-4xl font-bold text-orange-400">Urban Loft</h3>
+                    </div>
+                </div>
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl hover-3d">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Eco Haven" class="w-full h-96 object-cover float-orbit">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex items-end p-8">
+                        <h3 class="text-4xl font-bold text-orange-400">Eco Haven</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-32 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20 zoom-reveal">Voices of Trust
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 perspective">
+                <div class="bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 shadow-2xl hover-3d">
+                    <p class="text-gray-200 text-lg italic">"BuildMaster turned our dream home into a reality—beyond
+                        expectations!"</p>
+                    <p class="text-orange-400 font-semibold mt-4">— Sarah J.</p>
+                </div>
+                <div class="bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 shadow-2xl hover-3d">
+                    <p class="text-gray-200 text-lg italic">"Their innovation and speed on our office project were
+                        unreal."</p>
+                    <p class="text-orange-400 font-semibold mt-4">— Mark T.</p>
+                </div>
+                <div class="bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 shadow-2xl hover-3d">
+                    <p class="text-gray-200 text-lg italic">"A renovation that feels like a new beginning—pure genius."
+                    </p>
+                    <p class="text-orange-400 font-semibold mt-4">— Emily R.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-32 bg-gradient-to-b from-gray-900 to-gray-950">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20 zoom-reveal">The Dream Team</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 perspective">
+                <div class="text-center bg-gray-800/80 backdrop-blur-md rounded-3xl p-6 shadow-2xl hover-3d">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                        alt="Alex Carter" class="w-40 h-40 rounded-full mx-auto mb-6 float-orbit">
+                    <h3 class="text-2xl font-bold text-orange-400">Alex Carter</h3>
+                    <p class="text-gray-200">Lead Architect</p>
+                </div>
+                <div class="text-center bg-gray-800/80 backdrop-blur-md rounded-3xl p-6 shadow-2xl hover-3d">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                        alt="Maya Lin" class="w-40 h-40 rounded-full mx-auto mb-6 float-orbit">
+                    <h3 class="text-2xl font-bold text-orange-400">Maya Lin</h3>
+                    <p class="text-gray-200">Project Manager</p>
+                </div>
+                <div class="text-center bg-gray-800/80 backdrop-blur-md rounded-3xl p-6 shadow-2xl hover-3d">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                        alt="Jake Ross" class="w-40 h-40 rounded-full mx-auto mb-6 float-orbit">
+                    <h3 class="text-2xl font-bold text-orange-400">Jake Ross</h3>
+                    <p class="text-gray-200">Construction Lead</p>
+                </div>
+                <div class="text-center bg-gray-800/80 backdrop-blur-md rounded-3xl p-6 shadow-2xl hover-3d">
+                    <img src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                        alt="Lila Chen" class="w-40 h-40 rounded-full mx-auto mb-6 float-orbit">
+                    <h3 class="text-2xl font-bold text-orange-400">Lila Chen</h3>
+                    <p class="text-gray-200">Design Innovator</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 bg-gray-950">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20 zoom-reveal">Build With Us</h2>
+            <form class="max-w-xl mx-auto space-y-8 perspective">
+                <input type="text" placeholder="Your Name"
+                    class="w-full p-6 rounded-2xl bg-gray-800/80 backdrop-blur-md border border-gray-700 text-white focus:outline-none focus:ring-4 focus:ring-orange-400/50 transition-all hover-3d">
+                <input type="email" placeholder="Your Email"
+                    class="w-full p-6 rounded-2xl bg-gray-800/80 backdrop-blur-md border border-gray-700 text-white focus:outline-none focus:ring-4 focus:ring-orange-400/50 transition-all hover-3d">
+                <textarea placeholder="Your Next Big Idea" rows="6"
+                    class="w-full p-6 rounded-2xl bg-gray-800/80 backdrop-blur-md border border-gray-700 text-white focus:outline-none focus:ring-4 focus:ring-orange-400/50 transition-all hover-3d"></textarea>
+                <button type="submit"
+                    class="w-full bg-gradient-to-r from-orange-500 to-yellow-400 text-black px-10 py-6 rounded-full text-2xl font-bold shadow-2xl glow-pulse hover:scale-105 transition-transform">Let’s
+                    Construct</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-300 text-lg">© 2025 BuildMaster Construction. Crafting the future with passion and
+                steel.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
