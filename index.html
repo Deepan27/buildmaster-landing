@@ -11,8 +11,261 @@
     <meta property="og:description" content="Building your legacy with precision and innovation.">
     <meta property="og:image" content="https://deepan27.github.io/buildmaster-landing/img/hero-bg.jpg">
     <meta property="og:url" content="https://deepan27.github.io/buildmaster-landing/">
-    <title>IMF Energy</title>
+    <title>IMF Energy - Home</title>
     <link rel="stylesheet" href="output.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <style>
+        /* Animation keyframes */
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(249, 115, 22, 0.7);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Custom classes */
+        .stat-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(60deg,
+                    rgba(255, 255, 255, 0) 40%,
+                    rgba(255, 255, 255, 0.1) 50%,
+                    rgba(255, 255, 255, 0) 60%);
+            transform: rotate(45deg);
+            z-index: 1;
+            transition: all 0.6s;
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+            top: 100%;
+        }
+
+        .futuristic-border {
+            position: relative;
+            border: 1px solid rgba(249, 115, 22, 0.3);
+        }
+
+        .futuristic-border::after {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.3), transparent);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .futuristic-border:hover::after {
+            opacity: 1;
+            animation: pulse-glow 2s infinite;
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-1 {
+            animation-delay: 0s;
+        }
+
+        .floating-2 {
+            animation-delay: 0.5s;
+        }
+
+        .floating-3 {
+            animation-delay: 1s;
+        }
+
+        /* Hexagon items */
+        .hex-item {
+            position: relative;
+            width: 160px;
+            height: 92px;
+            margin: 0 10px;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            background: rgba(30, 30, 35, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border: 1px solid rgba(249, 115, 22, 0.2);
+        }
+
+        .hex-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(249, 115, 22, 0) 50%);
+            z-index: 1;
+        }
+
+        .hex-item:hover {
+            transform: translateY(-10px) scale(1.1);
+            z-index: 10;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(249, 115, 22, 0.5);
+        }
+
+        .hex-item:hover::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 2px solid rgba(249, 115, 22, 0.5);
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            animation: pulse-glow 2s infinite;
+        }
+
+        .hex-item img {
+            max-width: 75%;
+            max-height: 75%;
+            z-index: 2;
+            filter: grayscale(70%);
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .hex-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* Section spacing - adjusted */
+        .section-title {
+            padding-top: 40px;
+            margin-bottom: 25px;
+        }
+
+        /* Better text spacing - adjusted */
+        p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-container {
+            margin-top: 30px;
+        }
+
+        /* Horizontal Orbit Carousel */
+        .orbit-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            margin: 40px 0 60px;
+            perspective: 1200px;
+            overflow: hidden;
+        }
+
+        .orbit-scene {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transform: translateZ(-200px);
+        }
+
+        .orbit-track {
+            position: absolute;
+            width: 130%;
+            left: -15%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+
+        .orbit-item {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-style: preserve-3d;
+            transform-origin: center center;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .orbit-item:hover {
+            z-index: 100;
+        }
+
+        /* Orbit path visualization (horizontal ellipse) */
+        .orbit-path {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 10px;
+            border: 1px dashed rgba(249, 115, 22, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        /* Fade edges for orbit */
+        .fade-edge-left,
+        .fade-edge-right {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 150px;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .fade-edge-left {
+            left: 0;
+            background: linear-gradient(to right, rgba(17, 24, 39, 1), rgba(17, 24, 39, 0));
+        }
+
+        .fade-edge-right {
+            right: 0;
+            background: linear-gradient(to left, rgba(17, 24, 39, 1), rgba(17, 24, 39, 0));
+        }
+    </style>
 </head>
 
 <body class="bg-gray-950 text-white font-sans antialiased overflow-x-hidden">
@@ -23,17 +276,17 @@
                 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-yellow-400 to-orange-500 animate-pulse">
                 IMF Energy</h1>
             <nav id="nav-menu" class="hidden md:flex space-x-12" aria-label="Main navigation">
-                <a href="#home"
+                <a href="./index.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Home</a>
-                <a href="#services"
+                <a href="./services.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Services</a>
-                <a href="#projects"
+                <a href="./projects.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Projects</a>
-                <a href="#testimonials"
+                <a href="./testimonials.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Testimonials</a>
-                <a href="#team"
+                <a href="./team.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Team</a>
-                <a href="#contact"
+                <a href="./contact.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Contact</a>
             </nav>
             <button id="menu-toggle" class="md:hidden text-3xl text-orange-400 hover:text-orange-500 transition-colors"
@@ -52,159 +305,199 @@
             <p class="text-2xl md:text-4xl max-w-4xl mx-auto mt-6 text-gray-100 drop-shadow-lg zoom-reveal"
                 style="animation-delay: 0.3s;">Where innovation meets steel—building your legacy with unmatched
                 precision.</p>
-            <a href="#contact"
+            <a href="./contact.html"
                 class="mt-12 inline-block bg-gradient-to-r from-orange-500 to-yellow-400 text-black px-12 py-5 rounded-full text-2xl font-bold shadow-2xl glow-pulse hover:scale-110 transition-transform">Unleash
                 Your Vision</a>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-32 bg-gray-900">
+    <section id="services" class="pt-32 pb-32 min-h-screen bg-gray-900">
         <div class="container mx-auto px-6">
-            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20 zoom-reveal">Our Expertise</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 perspective">
+            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-16 zoom-reveal section-title">Our
+                Services</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 perspective">
                 <div class="frosted-card rounded-3xl overflow-hidden hover-3d">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
                         alt="Residential" class="w-full h-72 object-cover float-orbit">
                     <div class="p-8">
-                        <h3 class="text-3xl font-bold text-orange-400">Residential</h3>
-                        <p class="text-gray-200 mt-3">Futuristic homes that redefine living.</p>
+                        <h3 class="text-3xl font-bold text-orange-400 mb-3">Mechanical and Electrical Design</h3>
+                        <p class="text-gray-200">We provide a variety of services such as air conditioning,
+                            centralized HVAC automation, electrical systems, lighting, AV
+                            solutions, telecommunication, fibre optic cabling and plumbing.
+                        </p>
+                        <p class="text-gray-200">
+                            Civil and Structural Engineering: We offer waterproofing, structural repairs, roof work,
+                            flooring, kitchen cabinets, and
+                            sewer services. Our skills include membranes, grouting, skylights, and clearing blockages.
+                        </p>
                     </div>
                 </div>
                 <div class="frosted-card rounded-3xl overflow-hidden hover-3d">
                     <img src="https://images.unsplash.com/photo-1486328228599-85db4443971f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
                         alt="Commercial" class="w-full h-72 object-cover float-orbit">
                     <div class="p-8">
-                        <h3 class="text-3xl font-bold text-orange-400">Commercial</h3>
-                        <p class="text-gray-200 mt-3">Iconic spaces for bold businesses.</p>
+                        <h3 class="text-3xl font-bold text-orange-400 mb-3">Civil and Structural Engineering</h3>
+                        <p class="text-gray-200">We offer waterproofing, structural repairs, roof work, flooring,
+                            kitchen cabinets, and sewer services. Our skills
+                            include membranes, grouting, skylights, and clearing blockages.</p>
                     </div>
                 </div>
                 <div class="frosted-card rounded-3xl overflow-hidden hover-3d">
                     <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
                         alt="Renovations" class="w-full h-72 object-cover float-orbit">
                     <div class="p-8">
-                        <h3 class="text-3xl font-bold text-orange-400">Renovations</h3>
-                        <p class="text-gray-200 mt-3">Transforming the old into extraordinary.</p>
-                    </div>
-                </div>
-                <div class="frosted-card rounded-3xl overflow-hidden hover-3d">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                        alt="Custom" class="w-full h-72 object-cover float-orbit">
-                    <div class="p-8">
-                        <h3 class="text-3xl font-bold text-orange-400">Custom</h3>
-                        <p class="text-gray-200 mt-3">Bespoke builds, limitless possibilities.</p>
+                        <h3 class="text-3xl font-bold text-orange-400 mb-3">Project Management</h3>
+                        <p class="text-gray-200">We provide installation and testing of 33/11kV distribution, 11kV
+                            substations, and standby generators. Our services
+                            include electrical wiring solar energy solutions for residential and commercial buildings.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-32 bg-gradient-to-t from-gray-950 to-gray-900">
-        <div class="container mx-auto px-6">
-            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20 zoom-reveal">Our Creations</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 perspective">
-                <div class="relative rounded-3xl overflow-hidden shadow-2xl hover-3d">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Skyline Towers" class="w-full h-96 object-cover float-orbit">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex items-end p-8">
-                        <h3 class="text-4xl font-bold text-orange-400">Skyline Towers</h3>
+    <!-- Enhanced Statistics Section -->
+    <section id="statistics" class="py-24 mt-16 bg-gradient-to-b from-gray-950 to-gray-900 relative overflow-hidden">
+        <!-- Subtle glow effects instead of grid lines -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-orange-500/5 blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-yellow-500/5 blur-3xl"></div>
+            <div
+                class="absolute top-1/2 left-1/3 transform -translate-y-1/2 w-64 h-64 rounded-full bg-orange-500/10 blur-3xl">
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-5xl lg:text-6xl font-bold text-orange-400 mb-4 tracking-tight section-title">Excellence
+                    in Numbers</h2>
+                <div class="w-32 h-1 bg-gradient-to-r from-orange-500 to-yellow-400 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-300">Our commitment to excellence and innovation is reflected in our
+                    achievements and the trust our clients place in us.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 stats-container">
+                <!-- Years Established -->
+                <div class="stat-card futuristic-border bg-gray-900/90 backdrop-blur-md rounded-xl p-6 shadow-lg">
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-center mb-4">
+                            <div class="w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-400" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="counter text-5xl font-bold text-white mb-2 float-animation floating-1"
+                                data-target="12">0</div>
+                            <div class="text-sm uppercase tracking-wider text-gray-400 mb-1">Years Established</div>
+                            <div class="h-0.5 w-12 bg-orange-500/30 mx-auto mb-3"></div>
+                            <div class="text-sm text-gray-300">Building Excellence Since 2011</div>
+                        </div>
                     </div>
                 </div>
-                <div class="relative rounded-3xl overflow-hidden shadow-2xl hover-3d">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Urban Loft" class="w-full h-96 object-cover float-orbit">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex items-end p-8">
-                        <h3 class="text-4xl font-bold text-orange-400">Urban Loft</h3>
+
+                <!-- Projects Completed -->
+                <div class="stat-card futuristic-border bg-gray-900/90 backdrop-blur-md rounded-xl p-6 shadow-lg">
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-center mb-4">
+                            <div class="w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-400" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="counter text-5xl font-bold text-white mb-2 float-animation floating-2"
+                                data-target="150">0</div>
+                            <div class="text-sm uppercase tracking-wider text-gray-400 mb-1">Projects Completed</div>
+                            <div class="h-0.5 w-12 bg-orange-500/30 mx-auto mb-3"></div>
+                            <div class="text-sm text-gray-300">And Counting</div>
+                        </div>
                     </div>
                 </div>
-                <div class="relative rounded-3xl overflow-hidden shadow-2xl hover-3d">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Eco Haven" class="w-full h-96 object-cover float-orbit">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex items-end p-8">
-                        <h3 class="text-4xl font-bold text-orange-400">Eco Haven</h3>
+
+                <!-- Qualified Engineers -->
+                <div class="stat-card futuristic-border bg-gray-900/90 backdrop-blur-md rounded-xl p-6 shadow-lg">
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-center mb-4">
+                            <div class="w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-400" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="counter text-5xl font-bold text-white mb-2 float-animation floating-3"
+                                data-target="500">0</div>
+                            <div class="text-sm uppercase tracking-wider text-gray-400 mb-1">Qualified Engineers</div>
+                            <div class="h-0.5 w-12 bg-orange-500/30 mx-auto mb-3"></div>
+                            <div class="text-sm text-gray-300">Industry Experts</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry Recognition -->
+                <div class="stat-card futuristic-border bg-gray-900/90 backdrop-blur-md rounded-xl p-6 shadow-lg">
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-center mb-4">
+                            <div class="w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-400" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="counter text-5xl font-bold text-white mb-2 float-animation floating-1"
+                                data-target="20">0</div>
+                            <div class="text-sm uppercase tracking-wider text-gray-400 mb-1">Industry Awards</div>
+                            <div class="h-0.5 w-12 bg-orange-500/30 mx-auto mb-3"></div>
+                            <div class="text-sm text-gray-300">Excellence Recognized</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-32 bg-gray-900">
-        <div class="container mx-auto px-6">
-            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20 zoom-reveal">Voices of Trust
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 perspective">
-                <div class="bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 shadow-2xl hover-3d">
-                    <p class="text-gray-200 text-lg italic">"IMF Energy turned our dream home into a reality—beyond
-                        expectations!"</p>
-                    <p class="text-orange-400 font-semibold mt-4">— Sarah J.</p>
-                </div>
-                <div class="bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 shadow-2xl hover-3d">
-                    <p class="text-gray-200 text-lg italic">"Their innovation and speed on our office project were
-                        unreal."</p>
-                    <p class="text-orange-400 font-semibold mt-4">— Mark T.</p>
-                </div>
-                <div class="bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 shadow-2xl hover-3d">
-                    <p class="text-gray-200 text-lg italic">"A renovation that feels like a new beginning—pure genius."
-                    </p>
-                    <p class="text-orange-400 font-semibold mt-4">— Emily R.</p>
+    <!-- Enhanced Clients Section - Horizontal Orbit Carousel -->
+    <section id="clients" class="py-24 mt-16 bg-gray-900 relative overflow-hidden">
+        <!-- Subtle glow effects -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-0 left-0 w-72 h-72 rounded-full bg-orange-500/5 blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-72 h-72 rounded-full bg-yellow-500/5 blur-3xl"></div>
+        </div>
+
+        <div class="relative z-10">
+            <div class="max-w-4xl mx-auto text-center mb-16 px-6">
+                <h2 class="text-5xl lg:text-6xl font-bold text-orange-400 mb-6 tracking-tight section-title">Our Clients
+                </h2>
+                <div class="w-32 h-1 bg-gradient-to-r from-orange-500 to-yellow-400 mx-auto mb-8"></div>
+                <p class="text-xl text-gray-300 mb-12">Trusted by industry leaders across multiple sectors</p>
+            </div>
+
+            <!-- Horizontal Orbit Carousel -->
+            <div class="orbit-container">
+                <div class="fade-edge-left"></div>
+                <div class="fade-edge-right"></div>
+
+                <div class="orbit-scene">
+                    <div class="orbit-path"></div>
+                    <div class="orbit-track" id="orbitTrack">
+                        <!-- Orbit items will be added by JavaScript -->
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="py-32 bg-gradient-to-b from-gray-900 to-gray-950">
-        <div class="container mx-auto px-6">
-            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20 zoom-reveal">The Dream Team</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 perspective">
-                <div class="text-center bg-gray-800/80 backdrop-blur-md rounded-3xl p-6 shadow-2xl hover-3d">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
-                        alt="Alex Carter" class="w-40 h-40 rounded-full mx-auto mb-6 float-orbit">
-                    <h3 class="text-2xl font-bold text-orange-400">Alex Carter</h3>
-                    <p class="text-gray-200">Lead Architect</p>
-                </div>
-                <div class="text-center bg-gray-800/80 backdrop-blur-md rounded-3xl p-6 shadow-2xl hover-3d">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
-                        alt="Maya Lin" class="w-40 h-40 rounded-full mx-auto mb-6 float-orbit">
-                    <h3 class="text-2xl font-bold text-orange-400">Maya Lin</h3>
-                    <p class="text-gray-200">Project Manager</p>
-                </div>
-                <div class="text-center bg-gray-800/80 backdrop-blur-md rounded-3xl p-6 shadow-2xl hover-3d">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
-                        alt="Jake Ross" class="w-40 h-40 rounded-full mx-auto mb-6 float-orbit">
-                    <h3 class="text-2xl font-bold text-orange-400">Jake Ross</h3>
-                    <p class="text-gray-200">Construction Lead</p>
-                </div>
-                <div class="text-center bg-gray-800/80 backdrop-blur-md rounded-3xl p-6 shadow-2xl hover-3d">
-                    <img src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
-                        alt="Lila Chen" class="w-40 h-40 rounded-full mx-auto mb-6 float-orbit">
-                    <h3 class="text-2xl font-bold text-orange-400">Lila Chen</h3>
-                    <p class="text-gray-200">Design Innovator</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-32 bg-gray-950">
-        <div class="container mx-auto px-6">
-            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20 zoom-reveal">Build With Us</h2>
-            <form class="max-w-xl mx-auto space-y-8 perspective" aria-label="Contact form">
-                <input type="text" placeholder="Your Name"
-                    class="w-full p-6 rounded-2xl bg-gray-800/80 backdrop-blur-md border border-gray-700 text-white focus:outline-none focus:ring-4 focus:ring-orange-400/50 transition-all hover-3d"
-                    required>
-                <input type="email" placeholder="Your Email"
-                    class="w-full p-6 rounded-2xl bg-gray-800/80 backdrop-blur-md border border-gray-700 text-white focus:outline-none focus:ring-4 focus:ring-orange-400/50 transition-all hover-3d"
-                    required>
-                <textarea placeholder="Your Next Big Idea" rows="6"
-                    class="w-full p-6 rounded-2xl bg-gray-800/80 backdrop-blur-md border border-gray-700 text-white focus:outline-none focus:ring-4 focus:ring-orange-400/50 transition-all hover-3d"
-                    required></textarea>
-                <button type="submit"
-                    class="w-full bg-gradient-to-r from-orange-500 to-yellow-400 text-black px-10 py-6 rounded-full text-2xl font-bold shadow-2xl glow-pulse hover:scale-105 transition-transform">Let’s
-                    Construct</button>
-            </form>
         </div>
     </section>
 
@@ -231,6 +524,219 @@
             navMenu.classList.toggle('bg-black/80');
             navMenu.classList.toggle('p-6');
             menuToggle.textContent = navMenu.classList.contains('hidden') ? '☰' : '✕';
+        });
+
+        // Statistics counter animation with slower, more visible counting
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.counter');
+
+            const startCounters = () => {
+                counters.forEach(counter => {
+                    // Get target value from data attribute
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    // Adjust animation timing based on value magnitude
+                    const duration = 2000; // 2 seconds duration
+                    const startTime = Date.now();
+
+                    // Eased counting animation
+                    const updateCounter = () => {
+                        const currentTime = Date.now();
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+
+                        // Calculate current value using easing function
+                        const easedProgress = 1 - Math.pow(1 - progress, 3); // Cubic ease out
+                        const currentValue = Math.floor(easedProgress * target);
+
+                        counter.textContent = currentValue;
+
+                        // Continue animation until complete
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target + '+';
+                        }
+                    };
+
+                    updateCounter();
+                });
+            };
+
+            // Intersection Observer to trigger counter when in view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.1
+            });
+
+            // Observe the statistics section
+            const statsSection = document.getElementById('statistics');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+
+            // Horizontal Orbit Carousel Setup
+            function setupOrbitCarousel() {
+                // Client logos (customize with your actual data)
+                const clientLogos = [
+                    { name: "JKR", imgSrc: "img/jkr_logo.png" },
+                    { name: "TM", imgSrc: "img/tm_logo.png" },
+                    { name: "JPSM", imgSrc: "img/jpsm_logo.png" },
+                    { name: "MATRADE", imgSrc: "iimg/matrade_logo.png" },
+                    { name: "PRASARANA", imgSrc: "img/prasarana_logo.png" },
+                    { name: "MINDEF", imgSrc: "img/mindef_logo.png" },
+                    { name: "USIM", imgSrc: "img/usim_logo.png" },
+                    { name: "TENAGA", imgSrc: "img/tenaga_nasional_logo.png" },
+                    { name: "AIR SELANGOR", imgSrc: "img/air_selangor_logo.png" },
+                    { name: "BOMBA", imgSrc: "img/bomba_logo.png" }
+                ];
+
+                const orbitTrack = document.getElementById('orbitTrack');
+                const itemCount = clientLogos.length;
+                const radius = 600; // Radius of orbit path
+
+                // Create orbit items
+                clientLogos.forEach((logo, index) => {
+                    // Create orbit item
+                    const item = document.createElement('div');
+                    item.className = 'orbit-item';
+
+                    // Create hexagon container
+                    const hexagon = document.createElement('div');
+                    hexagon.className = 'hex-item';
+
+                    // Create image
+                    const img = document.createElement('img');
+                    img.src = logo.imgSrc;
+                    img.alt = logo.name + " Logo";
+
+                    // Assemble item
+                    hexagon.appendChild(img);
+                    item.appendChild(hexagon);
+                    orbitTrack.appendChild(item);
+
+                    // Initial position - modified for horizontal movement only
+                    const angle = (index / itemCount) * Math.PI * 2;
+                    positionOrbitItem(item, angle, radius);
+
+                    // Add hover effect
+                    addHoverEffects(hexagon);
+                });
+
+                // Initial animation rotation
+                if (typeof gsap !== 'undefined') {
+                    animateOrbit();
+                }
+            }
+
+            // Position an orbit item at the specified angle - modified for horizontal orbit
+            function positionOrbitItem(item, angle, radius) {
+                // Calculate x and z positions for horizontal movement only
+                const x = Math.sin(angle) * radius;
+                const z = Math.cos(angle) * radius;
+
+                // Calculate opacity and scale based on z position
+                const opacity = mapRange(z, -radius, radius, 0.4, 1);
+                const scale = mapRange(z, -radius, radius, 0.7, 1);
+
+                // Set transform - only move in x and z directions (horizontal plane)
+                // Note: y position (vertical) is fixed at -50% (centered)
+                item.style.transform = `translate(-50%, -50%) translateX(${x}px) translateZ(${z}px) scale(${scale})`;
+                item.style.opacity = opacity;
+
+                // Adjust z-index for proper overlap
+                item.style.zIndex = Math.floor(mapRange(z, -radius, radius, 0, 100));
+            }
+
+            // Utility function to map a value from one range to another
+            function mapRange(value, inMin, inMax, outMin, outMax) {
+                return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+            }
+
+            // Animate the orbit using GSAP - modified for horizontal rotation only
+            function animateOrbit() {
+                const orbitTrack = document.getElementById('orbitTrack');
+
+                gsap.to(orbitTrack, {
+                    duration: 30,
+                    ease: "none",
+                    rotationY: "+=360", // Changed from rotation to rotationY for horizontal orbit
+                    transformOrigin: "center center",
+                    repeat: -1,
+                    onUpdate: updateOrbitItemsPosition
+                });
+            }
+
+            // Update the position of each orbit item - modified for horizontal orbit with counter-rotation
+            function updateOrbitItemsPosition() {
+                const orbitItems = document.querySelectorAll('.orbit-item');
+                const orbitTrack = document.getElementById('orbitTrack');
+                const trackRotation = gsap.getProperty(orbitTrack, "rotationY"); // Changed to rotationY
+                const radius = 600;
+
+                orbitItems.forEach((item, index) => {
+                    const itemAngle = (index / orbitItems.length) * Math.PI * 2;
+                    // Adjust angle based on Y-axis rotation (horizontal orbit)
+                    const adjustedAngle = itemAngle + (trackRotation * Math.PI / 180);
+
+                    // Calculate x and z positions for horizontal movement
+                    const x = Math.sin(adjustedAngle) * radius;
+                    const z = Math.cos(adjustedAngle) * radius;
+
+                    // Calculate opacity and scale based on z position
+                    const opacity = mapRange(z, -radius, radius, 0.4, 1);
+                    const scale = mapRange(z, -radius, radius, 0.7, 1);
+
+                    // Apply counter-rotation to keep logos facing forward
+                    // The counter-rotation angle is the negative of the item's position angle
+                    const counterRotationY = -adjustedAngle * (180 / Math.PI);
+
+                    // Update item style with counter-rotation to prevent inverted logos
+                    item.style.transform = `translate(-50%, -50%) translateX(${x}px) translateZ(${z}px) rotateY(${counterRotationY}deg) scale(${scale})`;
+                    item.style.opacity = opacity;
+                    item.style.zIndex = Math.floor(mapRange(z, -radius, radius, 0, 100));
+                });
+            }
+
+            // Add hover effects to items
+            function addHoverEffects(element) {
+                element.addEventListener('mouseenter', () => {
+                    element.style.transform = 'translateY(-10px) scale(1.1)';
+                    element.style.borderColor = 'rgba(249, 115, 22, 0.5)';
+                    element.style.boxShadow = '0 10px 25px rgba(249, 115, 22, 0.2)';
+
+                    const img = element.querySelector('img');
+                    if (img) {
+                        img.style.filter = 'grayscale(0%)';
+                        img.style.opacity = '1';
+                        img.style.transform = 'scale(1.1)';
+                    }
+                });
+
+                element.addEventListener('mouseleave', () => {
+                    element.style.transform = '';
+                    element.style.borderColor = '';
+                    element.style.boxShadow = '';
+
+                    const img = element.querySelector('img');
+                    if (img) {
+                        img.style.filter = '';
+                        img.style.opacity = '';
+                        img.style.transform = '';
+                    }
+                });
+            }
+
+            // Initialize the orbit carousel
+            if (document.getElementById('orbitTrack')) {
+                setupOrbitCarousel();
+            }
         });
     </script>
 </body>
