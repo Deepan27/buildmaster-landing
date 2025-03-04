@@ -5,34 +5,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="IMF Energy - Innovative construction solutions for residential, commercial, and custom projects.">
-    <meta name="keywords" content="construction, residential, commercial, renovations, custom builds, BuildMaster">
-    <meta property="og:title" content="IMF Energy - Team">
-    <meta property="og:description" content="Building your legacy with precision and innovation.">
+        content="NMH Group Services - Innovative engineering solutions for mechanical, electrical, civil, and structural works.">
+    <meta name="keywords" content="engineering, mechanical, electrical, civil, structural, construction, Malaysia">
+    <meta property="og:title" content="NMH Group Services - About Us">
+    <meta property="og:description"
+        content="Delivering world-class engineering services with expertise and innovation.">
     <meta property="og:image" content="https://deepan27.github.io/buildmaster-landing/img/hero-bg.jpg">
     <meta property="og:url" content="https://deepan27.github.io/buildmaster-landing/">
-    <title>IMF Energy - Team</title>
+    <title>NMH Group Services - About Us</title>
     <link rel="stylesheet" href="output.css">
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            background: rgba(12, 17, 31, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .hover-glow:hover {
+            text-shadow: 0 0 10px rgba(249, 115, 22, 0.7);
+        }
+
+        .float-orbit {
+            transition: transform 0.5s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            border: 3px solid #f97316;
+        }
+
+        .float-orbit:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .hover-3d {
+            transition: transform 0.5s ease;
+        }
+
+        .hover-3d:hover {
+            transform: translateY(-15px) rotateY(10deg);
+            box-shadow: 0 25px 50px rgba(249, 115, 22, 0.2);
+        }
+
+        .zoom-reveal {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .perspective {
+            perspective: 1000px;
+        }
+
+        .csr-card {
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .csr-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .csr-card img {
+            transition: transform 0.5s ease;
+        }
+
+        .about-section {
+            position: relative;
+        }
+
+        .about-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1541976498248-c184a8a5341e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .mission-vision-card {
+            border-left: 4px solid #f97316;
+            transition: all 0.3s ease;
+        }
+
+        .mission-vision-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(249, 115, 22, 0.2);
+        }
+    </style>
 </head>
 
 <body class="bg-gray-950 text-white font-sans antialiased overflow-x-hidden">
     <!-- Header -->
-    <header class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-xl py-5 shadow-2xl transition-all">
+    <header class="header w-full top-0 z-50 bg-black/80 backdrop-blur-xl py-5 shadow-2xl transition-all">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <h1
                 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-yellow-400 to-orange-500 animate-pulse">
-                IMF Energy</h1>
+                NMH Group</h1>
             <nav id="nav-menu" class="hidden md:flex space-x-12" aria-label="Main navigation">
                 <a href="index.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Home</a>
-                <a href="services.html"
-                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Services</a>
+                <!-- <a href="services.html"
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Services</a> -->
                 <a href="projects.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Projects</a>
                 <a href="testimonials.html"
-                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Testimonials</a>
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Awards
+                    & Certificates</a>
                 <a href="team.html"
-                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Team</a>
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">About
+                    Us</a>
                 <a href="contact.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Contact</a>
             </nav>
@@ -41,10 +141,104 @@
         </div>
     </header>
 
-    <!-- Team Section -->
-    <section id="team" class="pt-32 pb-32 min-h-screen bg-gradient-to-b from-gray-900 to-gray-950">
+    <!-- About Section -->
+    <section id="about" class="pt-32 pb-20 about-section">
         <div class="container mx-auto px-6">
-            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20 zoom-reveal">The Dream Team</h2>
+            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-12 zoom-reveal">About NMH
+                Engineering Services Sdn Bhd</h2>
+            <div class="bg-gray-900/80 backdrop-blur-md rounded-3xl p-8 shadow-2xl mb-16">
+                <p class="text-lg text-gray-200 leading-relaxed mb-6">
+                    NMH Group Services Sdn Bhd was established to provide innovative and high-quality engineering
+                    solutions in the fields of mechanical, electrical, civil, and structural works. Our company is
+                    supported by a About Us of highly skilled professionals with strong technical expertise, enabling us
+                    to
+                    deliver comprehensive engineering services, including detailed design, construction, supervision,
+                    testing & commissioning, and total facilities management.
+                </p>
+                <p class="text-lg text-gray-200 leading-relaxed mb-6">
+                    With a About Us comprising experienced managers, engineers, and industry specialists, we ensure that
+                    every project is executed efficiently, from inception to completion. Our core philosophy is centered
+                    on client satisfaction, safety, quality, and value-added services, ensuring that all projects meet
+                    the highest industry standards.
+                </p>
+                <p class="text-lg text-gray-200 leading-relaxed">
+                    We are committed to continuous improvement, leveraging knowledge, experience, and advanced
+                    engineering methodologies to optimize resources and deliver world-class solutions. At NMH
+                    Engineering Services, we welcome opportunities to collaborate and build successful partnerships,
+                    bringing together our expertise, innovation, and competitive strength to achieve excellence.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
+                <div class="mission-vision-card bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 shadow-2xl">
+                    <h3 class="text-3xl font-bold text-orange-400 mb-6">Our Vision</h3>
+                    <p class="text-lg text-gray-200 leading-relaxed">
+                        Our Vision is to be a leading Malaysian Engineering company to be recognized for the delivery of
+                        world class services in each of our core businesses.
+                    </p>
+                </div>
+                <div class="mission-vision-card bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 shadow-2xl">
+                    <h3 class="text-3xl font-bold text-orange-400 mb-6">Our Mission</h3>
+                    <p class="text-lg text-gray-200 leading-relaxed">
+                        Our mission is to provide best partnering with our clients, to offer effective and efficient
+                        Engineering Services through our qualified, diligent and dedicated professionals.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="About Us" class="py-20 bg-gradient-to-b from-gray-950 to-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20 zoom-reveal">Board of Directors
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 perspective">
+                <div class="text-center bg-gray-800/80 backdrop-blur-md rounded-3xl p-6 shadow-2xl hover-3d">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                        alt="Nik Mansor Bin Nik Idris" class="w-40 h-40 rounded-full mx-auto mb-6 float-orbit">
+                    <h3 class="text-2xl font-bold text-orange-400">Nik Mansor Bin Nik Idris</h3>
+                    <p class="text-gray-200 mb-4">Managing Director</p>
+                    <p class="text-gray-300 text-sm">
+                        The founder of NMH Group Services Sdn Bhd is a certified High Tension (HT) Chargeman (B4)
+                        33kV graduate from ILSAS. Since 2008, he has been actively involved in engineering work,
+                        encompassing planning, design, construction, supervision, and commissioning of various
+                        Mechanical & Electrical (M&E) projects. He established NMH Group Services Sdn Bhd in 2012.
+                    </p>
+                </div>
+                <div class="text-center bg-gray-800/80 backdrop-blur-md rounded-3xl p-6 shadow-2xl hover-3d">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                        alt="Ir Mohamed Amin bin Kasim" class="w-40 h-40 rounded-full mx-auto mb-6 float-orbit">
+                    <h3 class="text-2xl font-bold text-orange-400">Ir Mohamed Amin bin Kasim</h3>
+                    <p class="text-gray-200 mb-4">Chief Operations Officer</p>
+                    <p class="text-gray-300 text-sm">
+                        Former Senior Director of the Road Branch at JKR Malaysia Headquarters, retired in April 2022
+                        after nearly 38 years of distinguished service in the civil service. Board of Engineer Malaysia
+                        certified professional engineer with practising certificate and ASEAN Certified Professional
+                        Engineer. Experience supervising building and infrastructure projects costing billions
+                        throughout his career.
+                    </p>
+                </div>
+                <div class="text-center bg-gray-800/80 backdrop-blur-md rounded-3xl p-6 shadow-2xl hover-3d">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                        alt="Wan Mohd Zirwan" class="w-40 h-40 rounded-full mx-auto mb-6 float-orbit">
+                    <h3 class="text-2xl font-bold text-orange-400">Wan Mohd Zirwan</h3>
+                    <p class="text-gray-200 mb-4">Chief Financial Officer</p>
+                    <p class="text-gray-300 text-sm">
+                        Masters Degree in Business Studies, Administration and Management from London Business School of
+                        Management and Science. CIMA Qualified Accountant from Kaplan Financial Education. Over 20 years
+                        of experience in all aspects of financial management, including regulatory compliance, financial
+                        reporting, budget consolidation, and risk management.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section (Original) -->
+    <!-- <section id="About Us-original" class="py-20 mt-16 bg-gradient-to-b from-gray-950 to-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20 zoom-reveal">Our About Us</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 perspective">
                 <div class="text-center bg-gray-800/80 backdrop-blur-md rounded-3xl p-6 shadow-2xl hover-3d">
                     <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
@@ -72,13 +266,66 @@
                 </div>
             </div>
         </div>
+    </section> -->
+
+    <!-- CSR Section -->
+    <section id="csr" class="py-20 mt-16 bg-gradient-to-b from-gray-950 to-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20 zoom-reveal">CSR Programs</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="csr-card bg-gray-800/80 backdrop-blur-md rounded-3xl overflow-hidden shadow-2xl">
+                    <div class="h-64 overflow-hidden">
+                        <img src="/api/placeholder/400/300" alt="Contributions for Indigenous Communities"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-orange-400 mb-2">Indigenous Communities Support</h3>
+                        <p class="text-gray-300">Supporting and empowering indigenous communities through various
+                            initiatives.</p>
+                    </div>
+                </div>
+                <div class="csr-card bg-gray-800/80 backdrop-blur-md rounded-3xl overflow-hidden shadow-2xl">
+                    <div class="h-64 overflow-hidden">
+                        <img src="/api/placeholder/400/300" alt="Contribution to Orphanage"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-orange-400 mb-2">Orphanage Support</h3>
+                        <p class="text-gray-300">Providing resources and care for children in need through orphanage
+                            partnerships.</p>
+                    </div>
+                </div>
+                <div class="csr-card bg-gray-800/80 backdrop-blur-md rounded-3xl overflow-hidden shadow-2xl">
+                    <div class="h-64 overflow-hidden">
+                        <img src="/api/placeholder/400/300" alt="Contribution to the Mahad Tahfiz"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-orange-400 mb-2">Mahad Tahfiz Contribution</h3>
+                        <p class="text-gray-300">Supporting Islamic education and traditional studies through
+                            contributions to Mahad Tahfiz.</p>
+                    </div>
+                </div>
+                <div class="csr-card bg-gray-800/80 backdrop-blur-md rounded-3xl overflow-hidden shadow-2xl">
+                    <div class="h-64 overflow-hidden">
+                        <img src="/api/placeholder/400/300" alt="Carpet Endowment for Surau"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-orange-400 mb-2">Surau Carpet Endowment</h3>
+                        <p class="text-gray-300">Providing comfort and dignity for worshippers through carpet donations
+                            to local suraus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-black py-12">
         <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-300 text-lg">© 2025 IMF Energy. Crafting the future with passion and
-                steel.</p>
+            <p class="text-gray-300 text-lg">© 2025 NMH Group Services Sdn Bhd.
+                solutions.</p>
         </div>
     </footer>
 
@@ -97,6 +344,21 @@
             navMenu.classList.toggle('bg-black/80');
             navMenu.classList.toggle('p-6');
             menuToggle.textContent = navMenu.classList.contains('hidden') ? '☰' : '✕';
+        });
+
+        // Animation for scroll reveal
+        document.addEventListener('DOMContentLoaded', function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('zoom-reveal');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('section > div > h2').forEach(h2 => {
+                observer.observe(h2);
+            });
         });
     </script>
 </body>

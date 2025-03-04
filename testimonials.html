@@ -5,34 +5,197 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="IMF Energy - Innovative construction solutions for residential, commercial, and custom projects.">
+        content="NMH Group - Innovative construction solutions for residential, commercial, and custom projects.">
     <meta name="keywords" content="construction, residential, commercial, renovations, custom builds, BuildMaster">
-    <meta property="og:title" content="IMF Energy - Testimonials">
+    <meta property="og:title" content="NMH Group - Testimonials">
     <meta property="og:description" content="Building your legacy with precision and innovation.">
     <meta property="og:image" content="https://deepan27.github.io/buildmaster-landing/img/hero-bg.jpg">
     <meta property="og:url" content="https://deepan27.github.io/buildmaster-landing/">
-    <title>IMF Energy - Testimonials</title>
+    <title>NMH Group - Testimonials</title>
     <link rel="stylesheet" href="output.css">
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            background: rgba(12, 17, 31, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 2.25rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #f97316, #fdba74);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #f97316;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #f97316;
+        }
+
+        /* Main content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 5rem);
+            padding: 4rem 3rem;
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Awards & Certificates Section */
+        .awards-section {
+            width: 100%;
+            padding: 2rem;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 1.5rem;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .awards-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #f97316, #fdba74);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-align: center;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .award-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #f97316;
+        }
+
+        .award-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(249, 115, 22, 0.3);
+        }
+
+        .award-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #f8fafc;
+            margin-bottom: 0.75rem;
+        }
+
+        .award-description {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .certificate-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.75rem;
+            margin-top: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 2rem;
+            }
+
+            .awards-title {
+                font-size: 2.5rem;
+            }
+
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+
 </head>
 
 <body class="bg-gray-950 text-white font-sans antialiased overflow-x-hidden">
     <!-- Header -->
-    <header class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-xl py-5 shadow-2xl transition-all">
+    <header class="header w-full top-0 z-50 bg-black/80 backdrop-blur-xl py-5 shadow-2xl transition-all">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <h1
                 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-yellow-400 to-orange-500 animate-pulse">
-                IMF Energy</h1>
+                NMH Group</h1>
             <nav id="nav-menu" class="hidden md:flex space-x-12" aria-label="Main navigation">
                 <a href="index.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Home</a>
-                <a href="services.html"
-                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Services</a>
+                <!-- <a href="services.html"
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Services</a> -->
                 <a href="projects.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Projects</a>
                 <a href="testimonials.html"
-                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Testimonials</a>
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Awards
+                    & Certificates</a>
                 <a href="team.html"
-                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Team</a>
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">About
+                    Us</a>
                 <a href="contact.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Contact</a>
             </nav>
@@ -42,34 +205,50 @@
     </header>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="pt-32 pb-32 min-h-screen bg-gray-900">
-        <div class="container mx-auto px-6">
-            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20 zoom-reveal">Voices of Trust
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 perspective">
-                <div class="bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 shadow-2xl hover-3d">
-                    <p class="text-gray-200 text-lg italic">"IMF Energy turned our dream home into a reality—beyond
-                        expectations!"</p>
-                    <p class="text-orange-400 font-semibold mt-4">— Sarah J.</p>
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="awards-section">
+            <h2 class="awards-title">Awards & Certificates</h2>
+            <div class="awards-grid">
+                <!-- Award 1 -->
+                <div class="award-card">
+                    <h3 class="award-title">Best Construction Firm 2024</h3>
+                    <p class="award-description">Recognized by the Malaysian Construction Association for excellence in
+                        innovative residential and commercial projects.</p>
+                    <img src="award1.jpg" alt="Best Construction Firm 2024 Certificate" class="certificate-image">
                 </div>
-                <div class="bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 shadow-2xl hover-3d">
-                    <p class="text-gray-200 text-lg italic">"Their innovation and speed on our office project were
-                        unreal."</p>
-                    <p class="text-orange-400 font-semibold mt-4">— Mark T.</p>
+
+                <!-- Award 2 -->
+                <div class="award-card">
+                    <h3 class="award-title">Sustainability Award 2023</h3>
+                    <p class="award-description">Honored by the Green Building Council for our commitment to sustainable
+                        construction practices and eco-friendly designs.</p>
+                    <img src="award2.jpg" alt="Sustainability Award 2023 Certificate" class="certificate-image">
                 </div>
-                <div class="bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 shadow-2xl hover-3d">
-                    <p class="text-gray-200 text-lg italic">"A renovation that feels like a new beginning—pure genius."
-                    </p>
-                    <p class="text-orange-400 font-semibold mt-4">— Emily R.</p>
+
+                <!-- Certificate 1 -->
+                <div class="award-card">
+                    <h3 class="award-title">ISO 9001 Certification</h3>
+                    <p class="award-description">Certified for quality management systems, ensuring our projects meet
+                        international standards of excellence.</p>
+                    <img src="certificate1.jpg" alt="ISO 9001 Certification" class="certificate-image">
+                </div>
+
+                <!-- Certificate 2 -->
+                <div class="award-card">
+                    <h3 class="award-title">OSHAS 18001 Certification</h3>
+                    <p class="award-description">Recognized for our commitment to occupational health and safety in all
+                        construction operations.</p>
+                    <img src="certificate2.jpg" alt="OSHAS 18001 Certification" class="certificate-image">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-black py-12">
         <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-300 text-lg">© 2025 IMF Energy. Crafting the future with passion and
+            <p class="text-gray-300 text-lg">© 2025 NMH Group. Crafting the future with passion and
                 steel.</p>
         </div>
     </footer>

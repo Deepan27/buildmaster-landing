@@ -5,34 +5,340 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="IMF Energy - Innovative construction solutions for residential, commercial, and custom projects.">
+        content="NMH Group - Innovative construction solutions for residential, commercial, and custom projects.">
     <meta name="keywords" content="construction, residential, commercial, renovations, custom builds, BuildMaster">
-    <meta property="og:title" content="IMF Energy - Contact">
-    <meta property="og:description" content="Building your legacy with precision and innovation.">
-    <meta property="og:image" content="https://deepan27.github.io/buildmaster-landing/img/hero-bg.jpg">
-    <meta property="og:url" content="https://deepan27.github.io/buildmaster-landing/">
-    <title>IMF Energy - Contact</title>
+    <title>NMH Group - Contact</title>
     <link rel="stylesheet" href="output.css">
+    <style>
+        /* Base styles */
+        body {
+            background-color: #0f172a;
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Header styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            background: rgba(12, 17, 31, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 2.25rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #f59e0b, #facc15);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(45deg, #f59e0b, #facc15);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #f59e0b;
+        }
+
+        /* Main content */
+        .main-content {
+            display: flex;
+            min-height: calc(100vh - 5rem);
+            padding: 4rem 3rem;
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Contact info */
+        .contact-info {
+            flex: 1;
+            padding: 2rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .contact-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(45deg, #f59e0b, #facc15);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .contact-title span {
+            color: white;
+        }
+
+        .contact-description {
+            color: #cbd5e1;
+            font-size: 1.25rem;
+            max-width: 90%;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(30, 41, 59, 0.3);
+            border-radius: 1rem;
+            transition: transform 0.3s ease;
+            gap: 1rem;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            background: rgba(30, 41, 59, 0.5);
+        }
+
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            color: #f59e0b;
+            flex-shrink: 0;
+        }
+
+        .contact-detail h3 {
+            font-weight: 600;
+            margin: 0 0 0.5rem 0;
+            color: #f8fafc;
+            font-size: 1.25rem;
+        }
+
+        .contact-detail p {
+            color: #94a3b8;
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background: rgba(245, 158, 11, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #f59e0b;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #f59e0b;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: linear-gradient(45deg, #f59e0b, #facc15);
+            color: white;
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Contact form */
+        .contact-form-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem 0;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .contact-form {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #f8fafc;
+        }
+
+        .form-input {
+            width: 100%;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            color: white;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input::placeholder {
+            color: #64748b;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #f59e0b;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+            background: rgba(30, 41, 59, 1);
+        }
+
+        .form-textarea {
+            min-height: 10rem;
+            resize: vertical;
+        }
+
+        .form-button {
+            background: linear-gradient(45deg, #f59e0b, #facc15);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.4);
+            background: linear-gradient(45deg, #facc15, #f59e0b);
+        }
+
+        .form-button svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                padding: 2rem;
+            }
+
+            .contact-info,
+            .contact-form-container {
+                width: 100%;
+            }
+
+            .contact-title {
+                font-size: 2.5rem;
+            }
+
+            .contact-description {
+                max-width: 100%;
+                font-size: 1rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
-<body class="bg-gray-950 text-white font-sans antialiased overflow-x-hidden">
+<body>
     <!-- Header -->
-    <header class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-xl py-5 shadow-2xl transition-all">
+    <header class="header top-0 z-50 bg-black/80 backdrop-blur-xl py-5 shadow-2xl transition-all">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <h1
                 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-yellow-400 to-orange-500 animate-pulse">
-                IMF Energy</h1>
+                NMH Group</h1>
             <nav id="nav-menu" class="hidden md:flex space-x-12" aria-label="Main navigation">
                 <a href="index.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Home</a>
-                <a href="services.html"
-                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Services</a>
+                <!-- <a href="services.html"
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Services</a> -->
                 <a href="projects.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Projects</a>
                 <a href="testimonials.html"
-                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Testimonials</a>
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Awards
+                    & Certificates</a>
                 <a href="team.html"
-                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Team</a>
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">About
+                    Us</a>
                 <a href="contact.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Contact</a>
             </nav>
@@ -41,52 +347,86 @@
         </div>
     </header>
 
-    <!-- Contact Section -->
-    <section id="contact" class="pt-32 pb-32 min-h-screen bg-gray-950">
-        <div class="container mx-auto px-6">
-            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20 zoom-reveal">Build With Us</h2>
-            <form class="max-w-xl mx-auto space-y-8 perspective" aria-label="Contact form">
-                <input type="text" placeholder="Your Name"
-                    class="w-full p-6 rounded-2xl bg-gray-800/80 backdrop-blur-md border border-gray-700 text-white focus:outline-none focus:ring-4 focus:ring-orange-400/50 transition-all hover-3d"
-                    required>
-                <input type="email" placeholder="Your Email"
-                    class="w-full p-6 rounded-2xl bg-gray-800/80 backdrop-blur-md border border-gray-700 text-white focus:outline-none focus:ring-4 focus:ring-orange-400/50 transition-all hover-3d"
-                    required>
-                <textarea placeholder="Your Next Big Idea" rows="6"
-                    class="w-full p-6 rounded-2xl bg-gray-800/80 backdrop-blur-md border border-gray-700 text-white focus:outline-none focus:ring-4 focus:ring-orange-400/50 transition-all hover-3d"
-                    required></textarea>
-                <button type="submit"
-                    class="w-full bg-gradient-to-r from-orange-500 to-yellow-400 text-black px-10 py-6 rounded-full text-2xl font-bold shadow-2xl glow-pulse hover:scale-105 transition-transform">Let's
-                    Construct</button>
-            </form>
-        </div>
-    </section>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Left Side - Contact Information -->
+        <div class="contact-info">
+            <h2 class="contact-title">Get In <span>Touch</span></h2>
+            <p class="contact-description">
+                Have a project in mind? Want to explore how NMH Group can transform your vision into reality? Our team
+                is here to deliver innovative construction solutions.
+            </p>
 
-    <!-- Footer -->
-    <footer class="bg-black py-12">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-300 text-lg">© 2025 IMF Energy. Crafting the future with passion and
-                steel.</p>
-        </div>
-    </footer>
+            <!-- Location info -->
+            <div class="contact-item">
+                <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <div class="contact-detail">
+                    <h3>Our Location</h3>
+                    <p>1102 Lingkaran Cyber Point Barat<br>Cyberjaya, Malaysia</p>
+                </div>
+            </div>
 
-    <script>
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('hidden');
-            navMenu.classList.toggle('flex');
-            navMenu.classList.toggle('flex-col');
-            navMenu.classList.toggle('absolute');
-            navMenu.classList.toggle('top-16');
-            navMenu.classList.toggle('left-0');
-            navMenu.classList.toggle('w-full');
-            navMenu.classList.toggle('bg-black/80');
-            navMenu.classList.toggle('p-6');
-            menuToggle.textContent = navMenu.classList.contains('hidden') ? '☰' : '✕';
-        });
-    </script>
+            <!-- Phone info -->
+            <div class="contact-item">
+                <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                    </path>
+                </svg>
+                <div class="contact-detail">
+                    <h3>Call Us</h3>
+                    <p>03-8322 6069</p>
+                </div>
+            </div>
+
+            <!-- Email info -->
+            <div class="contact-item">
+                <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <div class="contact-detail">
+                    <h3>Email Us</h3>
+                    <p>info@nmhgroup.com<br>projects@nmhgroup.com</p>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="#" class="social-link">FB</a>
+                <a href="#" class="social-link">TW</a>
+                <a href="#" class="social-link">IN</a>
+                <a href="#" class="social-link">LI</a>
+            </div>
+        </div>
+
+        <!-- Right Side - Contact Form -->
+        <div class="contact-form-container">
+            <div class="contact-form">
+                <h3 class="form-title">Send Us a Message</h3>
+                <form>
+                    <input type="text" class="form-input" placeholder="Your Name" required>
+                    <input type="email" class="form-input" placeholder="Your Email" required>
+                    <input type="text" class="form-input" placeholder="Subject">
+                    <textarea class="form-input form-textarea" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="form-button">
+                        Send Message
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>

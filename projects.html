@@ -5,34 +5,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="IMF Energy - Innovative construction solutions for residential, commercial, and custom projects.">
+        content="NMH Group - Innovative construction solutions for residential, commercial, and custom projects.">
     <meta name="keywords" content="construction, residential, commercial, renovations, custom builds, BuildMaster">
-    <meta property="og:title" content="IMF Energy - Projects">
+    <meta property="og:title" content="NMH Group - Projects">
     <meta property="og:description" content="Building your legacy with precision and innovation.">
     <meta property="og:image" content="https://deepan27.github.io/buildmaster-landing/img/hero-bg.jpg">
     <meta property="og:url" content="https://deepan27.github.io/buildmaster-landing/">
-    <title>IMF Energy - Projects</title>
+    <title>NMH Group - Projects</title>
     <link rel="stylesheet" href="output.css">
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            background: rgba(12, 17, 31, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Add custom styles for header and content spacing */
+        .header-height {
+            height: 85px;
+            /* Adjust based on your actual header height */
+        }
+
+        .main-content {
+            padding-top: calc(85px + 2rem);
+            /* Header height + extra spacing */
+        }
+
+        /* Animation keyframes for project cards */
+        @keyframes float-orbit {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .float-orbit {
+            animation: float-orbit 4s ease-in-out infinite;
+        }
+
+        .hover-3d {
+            transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+        }
+
+        .hover-3d:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .project-card img {
+            transition: transform 0.6s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-card .project-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            z-index: 2;
+            transform: translateY(20%);
+            opacity: 0.8;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .project-card:hover .project-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .project-card .project-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #f97316;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-card .project-description {
+            color: #f1f5f9;
+            font-size: 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .project-card:hover .project-description {
+            max-height: 100px;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-950 text-white font-sans antialiased overflow-x-hidden">
     <!-- Header -->
-    <header class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-xl py-5 shadow-2xl transition-all">
+    <header class="header w-full top-0 z-50 bg-black/80 backdrop-blur-xl py-5 shadow-2xl transition-all header-height">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <h1
                 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-yellow-400 to-orange-500 animate-pulse">
-                IMF Energy</h1>
+                NMH Group</h1>
             <nav id="nav-menu" class="hidden md:flex space-x-12" aria-label="Main navigation">
                 <a href="index.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Home</a>
-                <a href="services.html"
-                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Services</a>
+                <!-- <a href="services.html"
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Services</a> -->
                 <a href="projects.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Projects</a>
                 <a href="testimonials.html"
-                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Testimonials</a>
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Awards
+                    & Certificates</a>
                 <a href="team.html"
-                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Team</a>
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">About
+                    Us</a>
                 <a href="contact.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Contact</a>
             </nav>
@@ -42,38 +160,77 @@
     </header>
 
     <!-- Projects Section -->
-    <section id="projects" class="pt-32 pb-32 min-h-screen bg-gradient-to-t from-gray-950 to-gray-900">
+    <section id="projects" class="main-content pb-32 min-h-screen bg-gradient-to-t from-gray-950 to-gray-900">
         <div class="container mx-auto px-6">
-            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20 zoom-reveal">Our Creations</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 perspective">
-                <div class="relative rounded-3xl overflow-hidden shadow-2xl hover-3d">
+            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20">Our Creations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+                <!-- Project Card 1 -->
+                <div class="project-card hover-3d">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="TCG GONG KULIM img" class="w-full h-96 object-cover float-orbit">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex items-end p-8">
-                        <h3 class="text-4xl font-bold text-orange-400">TCG GONG KULIM</h3>
+                        alt="TCG GONG KULIM" class="w-full h-96 object-cover">
+                    <div class="project-content">
+                        <h3 class="project-title">TCG GONG KULIM</h3>
+                        <p class="project-description">A state-of-the-art facility featuring innovative mechanical and
+                            electrical systems designed for maximum efficiency and sustainability.</p>
                     </div>
                 </div>
-                <div class="relative rounded-3xl overflow-hidden shadow-2xl hover-3d">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="SEKOLAH HENRY GURNEY img" class="w-full h-96 object-cover float-orbit">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex items-end p-8">
-                        <h3 class="text-4xl font-bold text-orange-400">SEKOLAH HENRY GURNEY</h3>
+
+                <!-- Project Card 2 -->
+                <div class="project-card hover-3d">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="SEKOLAH HENRY GURNEY" class="w-full h-96 object-cover">
+                    <div class="project-content">
+                        <h3 class="project-title">SEKOLAH HENRY GURNEY</h3>
+                        <p class="project-description">Complete structural engineering and electrical system
+                            implementation for this educational institution.</p>
                     </div>
                 </div>
-                <div class="relative rounded-3xl overflow-hidden shadow-2xl hover-3d">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Eco Haven" class="w-full h-96 object-cover float-orbit">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex items-end p-8">
-                        <h3 class="text-4xl font-bold text-orange-400">Eco Haven</h3>
+
+                <!-- Project Card 3 -->
+                <div class="project-card hover-3d">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Eco Haven" class="w-full h-96 object-cover">
+                    <div class="project-content">
+                        <h3 class="project-title">ECO HAVEN</h3>
+                        <p class="project-description">A sustainable commercial complex featuring solar energy solutions
+                            and advanced HVAC automation.</p>
                     </div>
                 </div>
-                <div class="relative rounded-3xl overflow-hidden shadow-2xl hover-3d">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Eco Haven" class="w-full h-96 object-cover float-orbit">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex items-end p-8">
-                        <h3 class="text-4xl font-bold text-orange-400">Eco Haven</h3>
+
+                <!-- Project Card 4 -->
+                <div class="project-card hover-3d">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Timber Ridge Towers" class="w-full h-96 object-cover">
+                    <div class="project-content">
+                        <h3 class="project-title">TIMBER RIDGE TOWERS</h3>
+                        <p class="project-description">Comprehensive electrical wiring and structural solutions for this
+                            modern residential complex.</p>
                     </div>
                 </div>
+
+                <!-- Project Card 5 -->
+                <div class="project-card hover-3d">
+                    <img src="https://images.unsplash.com/photo-1481253127861-534498168948?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Marina Bay Complex" class="w-full h-96 object-cover">
+                    <div class="project-content">
+                        <h3 class="project-title">MARINA BAY COMPLEX</h3>
+                        <p class="project-description">Waterproofing, structural repairs, and advanced electrical
+                            systems implementation for this waterfront development.</p>
+                    </div>
+                </div>
+
+                <!-- Project Card 6 -->
+                <div class="project-card hover-3d">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Skyline Center" class="w-full h-96 object-cover">
+                    <div class="project-content">
+                        <h3 class="project-title">SKYLINE CENTER</h3>
+                        <p class="project-description">Complete project management including installation of 33/11kV
+                            distribution systems and standby generators.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -81,7 +238,7 @@
     <!-- Footer -->
     <footer class="bg-black py-12">
         <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-300 text-lg">© 2025 IMF Energy. Crafting the future with passion and
+            <p class="text-gray-300 text-lg">© 2025 NMH Group. Crafting the future with passion and
                 steel.</p>
         </div>
     </footer>

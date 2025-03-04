@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="IMF Energy - Innovative construction solutions for residential, commercial, and custom projects.">
+        content="NMH Group - Innovative construction solutions for residential, commercial, and custom projects.">
     <meta name="keywords" content="construction, residential, commercial, renovations, custom builds, BuildMaster">
-    <meta property="og:title" content="IMF Energy">
+    <meta property="og:title" content="NMH Group">
     <meta property="og:description" content="Building your legacy with precision and innovation.">
     <meta property="og:image" content="https://deepan27.github.io/buildmaster-landing/img/hero-bg.jpg">
     <meta property="og:url" content="https://deepan27.github.io/buildmaster-landing/">
-    <title>IMF Energy - Home</title>
+    <title>NMH Group - Home</title>
     <link rel="stylesheet" href="output.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <style>
@@ -40,6 +40,19 @@
             100% {
                 transform: translateY(0px);
             }
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            background: rgba(12, 17, 31, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
         }
 
         /* Custom classes */
@@ -174,8 +187,10 @@
 
         /* Section spacing - adjusted */
         .section-title {
-            padding-top: 40px;
-            margin-bottom: 25px;
+            padding-top: 20px;
+            /* Reduced padding */
+            margin-bottom: 15px;
+            /* Reduced margin */
         }
 
         /* Better text spacing - adjusted */
@@ -193,99 +208,97 @@
             margin-top: 30px;
         }
 
-        /* Horizontal Orbit Carousel */
-        .orbit-container {
+        /* Horizontal 3D Carousel */
+        .carousel-container {
             position: relative;
             width: 100%;
-            height: 200px;
+            height: 180px;
             margin: 40px 0 60px;
-            perspective: 1200px;
+            perspective: 1500px;
             overflow: hidden;
         }
 
-        .orbit-scene {
-            position: relative;
+        .carousel-track {
+            position: absolute;
+            height: 100%;
             width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-            transform: translateZ(-200px);
-        }
-
-        .orbit-track {
-            position: absolute;
-            width: 130%;
-            left: -15%;
-            height: 100%;
             transform-style: preserve-3d;
         }
 
-        .orbit-item {
+        .carousel-item {
             position: absolute;
+            height: 100%;
             top: 50%;
-            left: 50%;
-            transform-style: preserve-3d;
             transform-origin: center center;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transform-style: preserve-3d;
+            transition: filter 0.3s ease, opacity 0.3s ease;
         }
 
-        .orbit-item:hover {
-            z-index: 100;
+        .carousel-item:hover {
+            z-index: 1000;
         }
 
-        /* Orbit path visualization (horizontal ellipse) */
-        .orbit-path {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 10px;
-            border: 1px dashed rgba(249, 115, 22, 0.1);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-        }
-
-        /* Fade edges for orbit */
-        .fade-edge-left,
-        .fade-edge-right {
+        /* Fade edges */
+        .edge-fade-left,
+        .edge-fade-right {
             position: absolute;
             top: 0;
             height: 100%;
-            width: 150px;
+            width: 120px;
             z-index: 3;
             pointer-events: none;
         }
 
-        .fade-edge-left {
+        .edge-fade-left {
             left: 0;
             background: linear-gradient(to right, rgba(17, 24, 39, 1), rgba(17, 24, 39, 0));
         }
 
-        .fade-edge-right {
+        .edge-fade-right {
             right: 0;
             background: linear-gradient(to left, rgba(17, 24, 39, 1), rgba(17, 24, 39, 0));
+        }
+
+        /* Reflection effect */
+        .reflection {
+            position: absolute;
+            width: 100%;
+            height: 30px;
+            bottom: -30px;
+            transform: rotateX(180deg) scaleY(0.5);
+            opacity: 0.2;
+            filter: blur(2px);
+        }
+
+        .section {
+            padding-top: 20px;
+            /* Reduced padding */
+            padding-bottom: 20px;
+            /* Reduced padding */
         }
     </style>
 </head>
 
 <body class="bg-gray-950 text-white font-sans antialiased overflow-x-hidden">
     <!-- Header -->
-    <header class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-xl py-5 shadow-2xl transition-all">
+    <header class="header w-full top-0 z-50 bg-black/80 backdrop-blur-xl py-5 shadow-2xl transition-all">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <h1
                 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-yellow-400 to-orange-500 animate-pulse">
-                IMF Energy</h1>
+                NMH Group</h1>
             <nav id="nav-menu" class="hidden md:flex space-x-12" aria-label="Main navigation">
                 <a href="./index.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Home</a>
-                <a href="./services.html"
-                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Services</a>
+                <!-- <a href="./services.html"
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Services</a> -->
                 <a href="./projects.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Projects</a>
                 <a href="./testimonials.html"
-                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Testimonials</a>
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Awards
+                    & Certificates</a>
                 <a href="./team.html"
-                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Team</a>
+                    class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">About
+                    Us</a>
                 <a href="./contact.html"
                     class="text-lg font-semibold text-gray-100 hover:text-orange-400 transition-colors hover-glow">Contact</a>
             </nav>
@@ -312,9 +325,10 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="pt-32 pb-32 min-h-screen bg-gray-900">
+    <section id="services" class="section min-h-screen bg-gray-900">
         <div class="container mx-auto px-6">
-            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-16 zoom-reveal section-title">Our
+            <h2 class="text-5xl md:text-6xl mt-8 font-bold text-center text-orange-400 mb-16 zoom-reveal section-title">
+                Our
                 Services</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 perspective">
                 <div class="frosted-card rounded-3xl overflow-hidden hover-3d">
@@ -359,7 +373,7 @@
     </section>
 
     <!-- Enhanced Statistics Section -->
-    <section id="statistics" class="py-24 mt-16 bg-gradient-to-b from-gray-950 to-gray-900 relative overflow-hidden">
+    <section id="statistics" class="section py-16 bg-gradient-to-b from-gray-950 to-gray-900 relative overflow-hidden">
         <!-- Subtle glow effects instead of grid lines -->
         <div class="absolute inset-0 z-0">
             <div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-orange-500/5 blur-3xl"></div>
@@ -470,41 +484,263 @@
         </div>
     </section>
 
-    <!-- Enhanced Clients Section - Horizontal Orbit Carousel -->
-    <section id="clients" class="py-24 mt-16 bg-gray-900 relative overflow-hidden">
-        <!-- Subtle glow effects -->
+    <!-- Enhanced Clients Section - Horizontal 3D Carousel -->
+    <section id="clients" class="section py-16 bg-gray-900 relative overflow-hidden">
+        <!-- Background effects -->
         <div class="absolute inset-0 z-0">
-            <div class="absolute top-0 left-0 w-72 h-72 rounded-full bg-orange-500/5 blur-3xl"></div>
-            <div class="absolute bottom-0 right-0 w-72 h-72 rounded-full bg-yellow-500/5 blur-3xl"></div>
+            <div class="absolute top-0 left-0 w-96 h-96 rounded-full bg-orange-500/5 blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-yellow-500/5 blur-3xl"></div>
+            <div class="absolute top-1/3 right-1/4 w-64 h-64 rounded-full bg-orange-500/10 blur-3xl"></div>
         </div>
 
-        <div class="relative z-10">
-            <div class="max-w-4xl mx-auto text-center mb-16 px-6">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center mb-16">
                 <h2 class="text-5xl lg:text-6xl font-bold text-orange-400 mb-6 tracking-tight section-title">Our Clients
                 </h2>
                 <div class="w-32 h-1 bg-gradient-to-r from-orange-500 to-yellow-400 mx-auto mb-8"></div>
                 <p class="text-xl text-gray-300 mb-12">Trusted by industry leaders across multiple sectors</p>
             </div>
 
-            <!-- Horizontal Orbit Carousel -->
-            <div class="orbit-container">
-                <div class="fade-edge-left"></div>
-                <div class="fade-edge-right"></div>
-
-                <div class="orbit-scene">
-                    <div class="orbit-path"></div>
-                    <div class="orbit-track" id="orbitTrack">
-                        <!-- Orbit items will be added by JavaScript -->
-                    </div>
-                </div>
+            <!-- Client Hexgrid Showcase -->
+            <div class="client-showcase-container">
+                <div id="clientHexgrid" class="client-hexgrid"></div>
             </div>
         </div>
     </section>
 
+    <style>
+        /* Modern Client Showcase Styles */
+        .client-showcase-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0 60px;
+            overflow: visible;
+        }
+
+        .client-hexgrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-gap: 2.5rem;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .client-item {
+            position: relative;
+            height: 120px;
+            background: rgba(30, 30, 35, 0.7);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(249, 115, 22, 0.15);
+            overflow: hidden;
+            box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .client-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.5), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.7s ease;
+        }
+
+        .client-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: rgba(249, 115, 22, 0.4);
+            box-shadow: 0 15px 30px -10px rgba(249, 115, 22, 0.2);
+            z-index: 2;
+        }
+
+        .client-item:hover::before {
+            transform: translateX(100%);
+        }
+
+        .client-item img {
+            max-width: 80%;
+            max-height: 60%;
+            object-fit: contain;
+            filter: grayscale(60%);
+            opacity: 0.8;
+            transition: all 0.5s ease;
+        }
+
+        .client-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .client-item .client-info {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            width: 100%;
+            background: rgba(20, 20, 25, 0.9);
+            padding: 10px;
+            text-align: center;
+            transform: translateY(0);
+            opacity: 0;
+            transition: all 0.3s ease;
+            border-top: 1px solid rgba(249, 115, 22, 0.2);
+        }
+
+        .client-item:hover .client-info {
+            bottom: 0;
+            opacity: 1;
+        }
+
+        .client-info h4 {
+            color: #f97316;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .client-hexgrid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-gap: 1.5rem;
+            }
+
+            .client-item {
+                height: 100px;
+            }
+        }
+
+        /* Cool floating animation for staggered appearance */
+        @keyframes float-in {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Glow pulse animation for highlights */
+        @keyframes glow-pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 10px 25px -10px rgba(249, 115, 22, 0.1);
+            }
+
+            50% {
+                box-shadow: 0 10px 30px -5px rgba(249, 115, 22, 0.3);
+            }
+        }
+    </style>
+
+    <script>
+        // Modern Client Showcase Script
+        document.addEventListener('DOMContentLoaded', () => {
+            // Array of client logos - replace with your actual client data
+            const clientData = [
+                { name: "JKR", imgSrc: "img/jkr_logo.png" },
+                { name: "TM", imgSrc: "img/tm_logo.png" },
+                { name: "JPSM", imgSrc: "img/jpsm_logo.png" },
+                { name: "MATRADE", imgSrc: "img/matrade_logo.png" },
+                { name: "PRASARANA", imgSrc: "img/prasarana_logo.png" },
+                { name: "MINDEF", imgSrc: "img/mindef_logo.png" },
+                { name: "USIM", imgSrc: "img/usim_logo.png" },
+                { name: "TENAGA", imgSrc: "img/tenaga_nasional_logo.png" },
+                { name: "AIR SELANGOR", imgSrc: "img/air_selangor_logo.png" },
+                { name: "BOMBA", imgSrc: "img/bomba_logo.png" }
+            ];
+
+            const hexgrid = document.getElementById('clientHexgrid');
+
+            // Create client items
+            clientData.forEach((client, index) => {
+                // Create elements
+                const item = document.createElement('div');
+                item.classList.add('client-item');
+
+                const img = document.createElement('img');
+                img.src = client.imgSrc;
+                img.alt = `${client.name} logo`;
+
+                const infoDiv = document.createElement('div');
+                infoDiv.classList.add('client-info');
+
+                const clientName = document.createElement('h4');
+                clientName.textContent = client.name;
+
+                // Assemble elements
+                infoDiv.appendChild(clientName);
+                item.appendChild(img);
+                item.appendChild(infoDiv);
+                hexgrid.appendChild(item);
+
+                // Add staggered animation
+                setTimeout(() => {
+                    item.style.animation = `float-in 0.6s ease forwards, glow-pulse 4s infinite`;
+                    item.style.animationDelay = `${index * 0.15}s`;
+                }, 300);
+            });
+
+            // Intersection Observer for on-scroll effects
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const items = entry.target.querySelectorAll('.client-item');
+                        items.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 100 * index);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            observer.observe(hexgrid);
+
+            // Add parallax effect on mouse move
+            document.addEventListener('mousemove', (e) => {
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+
+                const items = document.querySelectorAll('.client-item');
+                items.forEach((item, index) => {
+                    const depth = 1 + (index % 3) * 0.5;
+                    const moveX = (mouseX - 0.5) * depth * 10;
+                    const moveY = (mouseY - 0.5) * depth * 10;
+
+                    gsap.to(item, {
+                        x: moveX,
+                        y: moveY,
+                        duration: 1,
+                        ease: "power1.out"
+                    });
+                });
+            });
+        });
+    </script>
+
     <!-- Footer -->
     <footer class="bg-black py-12">
         <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-300 text-lg">© 2025 IMF Energy. Crafting the future with passion and
+            <p class="text-gray-300 text-lg">© 2025 NMH Group. Crafting the future with passion and
                 steel.</p>
         </div>
     </footer>
@@ -581,31 +817,32 @@
                 observer.observe(statsSection);
             }
 
-            // Horizontal Orbit Carousel Setup
-            function setupOrbitCarousel() {
+            // Horizontal 3D Carousel Setup
+            function setupHorizontalCarousel() {
                 // Client logos (customize with your actual data)
                 const clientLogos = [
-                    { name: "JKR", imgSrc: "img/jkr_logo.png" },
-                    { name: "TM", imgSrc: "img/tm_logo.png" },
-                    { name: "JPSM", imgSrc: "img/jpsm_logo.png" },
-                    { name: "MATRADE", imgSrc: "iimg/matrade_logo.png" },
-                    { name: "PRASARANA", imgSrc: "img/prasarana_logo.png" },
-                    { name: "MINDEF", imgSrc: "img/mindef_logo.png" },
-                    { name: "USIM", imgSrc: "img/usim_logo.png" },
-                    { name: "TENAGA", imgSrc: "img/tenaga_nasional_logo.png" },
-                    { name: "AIR SELANGOR", imgSrc: "img/air_selangor_logo.png" },
-                    { name: "BOMBA", imgSrc: "img/bomba_logo.png" }
+                    { name: "JKR", imgSrc: "/api/placeholder/120/60" },
+                    { name: "TM", imgSrc: "/api/placeholder/120/60" },
+                    { name: "JPSM", imgSrc: "/api/placeholder/120/60" },
+                    { name: "MATRADE", imgSrc: "/api/placeholder/120/60" },
+                    { name: "PRASARANA", imgSrc: "/api/placeholder/120/60" },
+                    { name: "MINDEF", imgSrc: "/api/placeholder/120/60" },
+                    { name: "USIM", imgSrc: "/api/placeholder/120/60" },
+                    { name: "TENAGA", imgSrc: "/api/placeholder/120/60" },
+                    { name: "AIR SELANGOR", imgSrc: "/api/placeholder/120/60" },
+                    { name: "BOMBA", imgSrc: "/api/placeholder/120/60" }
                 ];
 
-                const orbitTrack = document.getElementById('orbitTrack');
+                const carouselTrack = document.getElementById('carouselTrack');
+                const containerWidth = document.querySelector('.carousel-container').offsetWidth;
                 const itemCount = clientLogos.length;
-                const radius = 600; // Radius of orbit path
 
-                // Create orbit items
+                // Create carousel items
                 clientLogos.forEach((logo, index) => {
-                    // Create orbit item
+                    // Create carousel item
                     const item = document.createElement('div');
-                    item.className = 'orbit-item';
+                    item.className = 'carousel-item';
+                    item.setAttribute('data-index', index);
 
                     // Create hexagon container
                     const hexagon = document.createElement('div');
@@ -616,100 +853,126 @@
                     img.src = logo.imgSrc;
                     img.alt = logo.name + " Logo";
 
+                    // Add reflection effect
+                    const reflection = document.createElement('div');
+                    reflection.className = 'reflection';
+
                     // Assemble item
                     hexagon.appendChild(img);
+                    hexagon.appendChild(reflection.cloneNode(true));
                     item.appendChild(hexagon);
-                    orbitTrack.appendChild(item);
-
-                    // Initial position - modified for horizontal movement only
-                    const angle = (index / itemCount) * Math.PI * 2;
-                    positionOrbitItem(item, angle, radius);
+                    carouselTrack.appendChild(item);
 
                     // Add hover effect
                     addHoverEffects(hexagon);
                 });
 
-                // Initial animation rotation
+                // Duplicate some items for seamless loop
+                for (let i = 0; i < 3; i++) {
+                    const originalItem = carouselTrack.querySelector(`.carousel-item[data-index="${i}"]`);
+                    const clonedItem = originalItem.cloneNode(true);
+                    carouselTrack.appendChild(clonedItem);
+
+                    // Add hover effect to the cloned item
+                    addHoverEffects(clonedItem.querySelector('.hex-item'));
+                }
+
+                // Initialize animation with GSAP
                 if (typeof gsap !== 'undefined') {
-                    animateOrbit();
+                    initCarouselAnimation();
                 }
             }
 
-            // Position an orbit item at the specified angle - modified for horizontal orbit
-            function positionOrbitItem(item, angle, radius) {
-                // Calculate x and z positions for horizontal movement only
-                const x = Math.sin(angle) * radius;
-                const z = Math.cos(angle) * radius;
+            // Initialize horizontal carousel animation with GSAP
+            function initCarouselAnimation() {
+                const carouselItems = document.querySelectorAll('.carousel-item');
+                const itemCount = document.querySelectorAll('.carousel-item[data-index]').length;
+                const containerWidth = document.querySelector('.carousel-container').offsetWidth;
 
-                // Calculate opacity and scale based on z position
-                const opacity = mapRange(z, -radius, radius, 0.4, 1);
-                const scale = mapRange(z, -radius, radius, 0.7, 1);
+                // Position all items initially
+                positionCarouselItems();
 
-                // Set transform - only move in x and z directions (horizontal plane)
-                // Note: y position (vertical) is fixed at -50% (centered)
-                item.style.transform = `translate(-50%, -50%) translateX(${x}px) translateZ(${z}px) scale(${scale})`;
-                item.style.opacity = opacity;
-
-                // Adjust z-index for proper overlap
-                item.style.zIndex = Math.floor(mapRange(z, -radius, radius, 0, 100));
-            }
-
-            // Utility function to map a value from one range to another
-            function mapRange(value, inMin, inMax, outMin, outMax) {
-                return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
-            }
-
-            // Animate the orbit using GSAP - modified for horizontal rotation only
-            function animateOrbit() {
-                const orbitTrack = document.getElementById('orbitTrack');
-
-                gsap.to(orbitTrack, {
+                // Animate the carousel
+                gsap.to('#carouselTrack', {
+                    x: `-=${containerWidth * 1.5}`, // Move by 1.5x container width
                     duration: 30,
                     ease: "none",
-                    rotationY: "+=360", // Changed from rotation to rotationY for horizontal orbit
-                    transformOrigin: "center center",
                     repeat: -1,
-                    onUpdate: updateOrbitItemsPosition
+                    onUpdate: updateItemVisibility,
+                    onRepeat: resetItemsPosition
                 });
             }
 
-            // Update the position of each orbit item - modified for horizontal orbit with counter-rotation
-            function updateOrbitItemsPosition() {
-                const orbitItems = document.querySelectorAll('.orbit-item');
-                const orbitTrack = document.getElementById('orbitTrack');
-                const trackRotation = gsap.getProperty(orbitTrack, "rotationY"); // Changed to rotationY
-                const radius = 600;
+            // Position carousel items in a circular arrangement horizontally
+            function positionCarouselItems() {
+                const items = document.querySelectorAll('.carousel-item');
+                const itemCount = document.querySelectorAll('.carousel-item[data-index]').length;
+                const containerWidth = document.querySelector('.carousel-container').offsetWidth;
+                const spacing = containerWidth / (itemCount - 1);
 
-                orbitItems.forEach((item, index) => {
-                    const itemAngle = (index / orbitItems.length) * Math.PI * 2;
-                    // Adjust angle based on Y-axis rotation (horizontal orbit)
-                    const adjustedAngle = itemAngle + (trackRotation * Math.PI / 180);
+                items.forEach((item, index) => {
+                    const dataIndex = item.getAttribute('data-index');
+                    let position;
 
-                    // Calculate x and z positions for horizontal movement
-                    const x = Math.sin(adjustedAngle) * radius;
-                    const z = Math.cos(adjustedAngle) * radius;
+                    if (dataIndex !== null) {
+                        // Original items
+                        position = parseInt(dataIndex) * spacing;
+                    } else {
+                        // Cloned items for looping
+                        position = (itemCount + (index - itemCount)) * spacing;
+                    }
 
-                    // Calculate opacity and scale based on z position
-                    const opacity = mapRange(z, -radius, radius, 0.4, 1);
-                    const scale = mapRange(z, -radius, radius, 0.7, 1);
-
-                    // Apply counter-rotation to keep logos facing forward
-                    // The counter-rotation angle is the negative of the item's position angle
-                    const counterRotationY = -adjustedAngle * (180 / Math.PI);
-
-                    // Update item style with counter-rotation to prevent inverted logos
-                    item.style.transform = `translate(-50%, -50%) translateX(${x}px) translateZ(${z}px) rotateY(${counterRotationY}deg) scale(${scale})`;
-                    item.style.opacity = opacity;
-                    item.style.zIndex = Math.floor(mapRange(z, -radius, radius, 0, 100));
+                    // Apply position
+                    gsap.set(item, {
+                        x: position,
+                        y: '-50%', // Center vertically
+                        z: 0
+                    });
                 });
             }
 
-            // Add hover effects to items
+            // Update item visibility and scale based on position
+            function updateItemVisibility() {
+                const items = document.querySelectorAll('.carousel-item');
+                const containerWidth = document.querySelector('.carousel-container').offsetWidth;
+                const centerX = containerWidth / 2;
+
+                items.forEach(item => {
+                    const itemRect = item.getBoundingClientRect();
+                    const containerRect = document.querySelector('.carousel-container').getBoundingClientRect();
+
+                    // Calculate item's center position relative to container
+                    const itemCenterX = itemRect.left + (itemRect.width / 2) - containerRect.left;
+
+                    // Calculate distance from center (as a percentage)
+                    const distanceFromCenter = Math.abs(itemCenterX - centerX) / (containerWidth / 2);
+
+                    // Calculate scale and opacity based on distance from center
+                    const scale = Math.max(0.7, 1 - (distanceFromCenter * 0.3));
+                    const opacity = Math.max(0.4, 1 - (distanceFromCenter * 0.6));
+
+                    // Apply transformations
+                    gsap.set(item, {
+                        scale: scale,
+                        opacity: opacity,
+                        zIndex: Math.round(100 - distanceFromCenter * 100)
+                    });
+                });
+            }
+
+            // Reset items position for seamless looping
+            function resetItemsPosition() {
+                const track = document.getElementById('carouselTrack');
+                gsap.set(track, { x: 0 });
+            }
+
+            // Add hover effects to carousel items
             function addHoverEffects(element) {
                 element.addEventListener('mouseenter', () => {
                     element.style.transform = 'translateY(-10px) scale(1.1)';
                     element.style.borderColor = 'rgba(249, 115, 22, 0.5)';
                     element.style.boxShadow = '0 10px 25px rgba(249, 115, 22, 0.2)';
+                    element.style.zIndex = '1000';
 
                     const img = element.querySelector('img');
                     if (img) {
@@ -723,6 +986,7 @@
                     element.style.transform = '';
                     element.style.borderColor = '';
                     element.style.boxShadow = '';
+                    element.style.zIndex = '';
 
                     const img = element.querySelector('img');
                     if (img) {
@@ -733,9 +997,19 @@
                 });
             }
 
-            // Initialize the orbit carousel
-            if (document.getElementById('orbitTrack')) {
-                setupOrbitCarousel();
+            // Initialize the carousel when the DOM is loaded
+            if (document.getElementById('carouselTrack')) {
+                setupHorizontalCarousel();
+
+                // Handle window resize for responsive behavior
+                window.addEventListener('resize', () => {
+                    // Kill any existing animations
+                    gsap.killTweensOf('#carouselTrack');
+
+                    // Reposition items and restart animation
+                    positionCarouselItems();
+                    initCarouselAnimation();
+                });
             }
         });
     </script>
