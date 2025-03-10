@@ -106,3 +106,55 @@
     background: rgba(40, 40, 40, 0.25);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.15);
 }
+
+/* Awards page specific styles */
+.awards-section {
+    @apply p-8 sm:p-10 md:p-12 lg:p-16; /* Increased padding */
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.awards-title {
+    @apply mb-12 lg:mb-16; /* Increased bottom margin */
+}
+
+.awards-grid {
+    @apply gap-8 md:gap-10 lg:gap-12; /* Increased gap between cards */
+    margin-top: 3rem;
+}
+
+.award-card {
+    @apply p-6 md:p-8 lg:p-10; /* Increased padding inside cards */
+}
+
+.award-title {
+    @apply mb-6; /* Increased margin below title */
+}
+
+.award-description {
+    @apply mb-6 leading-relaxed; /* Added margin below description and increased line height */
+}
+
+.certificate-image {
+    @apply mt-6; /* Increased margin above image */
+}
+
+/* Increase main content spacing */
+.main-content {
+    @apply py-16 px-6 md:py-20 md:px-8 lg:py-24 lg:px-10;
+}
+
+/* These media queries ensure responsiveness */
+@media (max-width: 768px) {
+    .awards-section {
+        @apply p-6;
+    }
+    
+    .awards-title {
+        @apply mb-8;
+    }
+    
+    .award-card {
+        @apply p-5;
+    }
+}

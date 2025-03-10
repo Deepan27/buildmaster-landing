@@ -159,81 +159,167 @@
         </div>
     </header>
 
-    <!-- Projects Section -->
-    <section id="projects" class="main-content pb-32 min-h-screen bg-gradient-to-t from-gray-950 to-gray-900">
-        <div class="container mx-auto px-6">
-            <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20">Our Creations</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-
-                <!-- Project Card 1 -->
-                <div class="project-card hover-3d">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="TCG GONG KULIM" class="w-full h-96 object-cover">
-                    <div class="project-content">
-                        <h3 class="project-title">TCG GONG KULIM</h3>
-                        <p class="project-description">A state-of-the-art facility featuring innovative mechanical and
-                            electrical systems designed for maximum efficiency and sustainability.</p>
-                    </div>
-                </div>
-
-                <!-- Project Card 2 -->
-                <div class="project-card hover-3d">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="SEKOLAH HENRY GURNEY" class="w-full h-96 object-cover">
-                    <div class="project-content">
-                        <h3 class="project-title">SEKOLAH HENRY GURNEY</h3>
-                        <p class="project-description">Complete structural engineering and electrical system
-                            implementation for this educational institution.</p>
-                    </div>
-                </div>
-
-                <!-- Project Card 3 -->
-                <div class="project-card hover-3d">
-                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Eco Haven" class="w-full h-96 object-cover">
-                    <div class="project-content">
-                        <h3 class="project-title">ECO HAVEN</h3>
-                        <p class="project-description">A sustainable commercial complex featuring solar energy solutions
-                            and advanced HVAC automation.</p>
-                    </div>
-                </div>
-
-                <!-- Project Card 4 -->
-                <div class="project-card hover-3d">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Timber Ridge Towers" class="w-full h-96 object-cover">
-                    <div class="project-content">
-                        <h3 class="project-title">TIMBER RIDGE TOWERS</h3>
-                        <p class="project-description">Comprehensive electrical wiring and structural solutions for this
-                            modern residential complex.</p>
-                    </div>
-                </div>
-
-                <!-- Project Card 5 -->
-                <div class="project-card hover-3d">
-                    <img src="https://images.unsplash.com/photo-1481253127861-534498168948?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Marina Bay Complex" class="w-full h-96 object-cover">
-                    <div class="project-content">
-                        <h3 class="project-title">MARINA BAY COMPLEX</h3>
-                        <p class="project-description">Waterproofing, structural repairs, and advanced electrical
-                            systems implementation for this waterfront development.</p>
-                    </div>
-                </div>
-
-                <!-- Project Card 6 -->
-                <div class="project-card hover-3d">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Skyline Center" class="w-full h-96 object-cover">
-                    <div class="project-content">
-                        <h3 class="project-title">SKYLINE CENTER</h3>
-                        <p class="project-description">Complete project management including installation of 33/11kV
-                            distribution systems and standby generators.</p>
-                    </div>
-                </div>
-
+    <!-- Projects Section - REPLACED WITH NEW LAYOUT -->
+<!-- Projects Section -->
+<section id="projects" class="main-content pb-32 min-h-screen bg-gradient-to-t from-gray-950 to-gray-900">
+    <div class="container mx-auto px-6">
+        <h2 class="text-5xl md:text-6xl font-bold text-center text-orange-400 mb-20">Our Creations</h2>
+        
+        <style>
+            /* Simple fix to add more spacing between title and description */
+            .project-container {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 5rem;
+                align-items: center;
+                gap: 2rem;
+            }
+            
+            .project-image-container {
+                width: 100%;
+                overflow: hidden;
+                border-radius: 1rem;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+                transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+            }
+            
+            .project-image-container:hover {
+                transform: translateY(-10px) scale(1.02);
+                box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+            }
+            
+            .project-image {
+                width: 100%;
+                height: 400px; /* Fixed height for all images */
+                object-fit: cover;
+                transition: transform 0.7s ease;
+            }
+            
+            .project-image:hover {
+                transform: scale(1.05);
+            }
+            
+            .project-content {
+                width: 100%;
+                padding: 1rem;
+            }
+            
+            .project-content h3 {
+                margin-bottom: 2rem !important; /* Increased spacing between title and description */
+            }
+            
+            /* Desktop layout */
+            @media (min-width: 768px) {
+                .project-container {
+                    flex-direction: row;
+                }
+                
+                .project-container.reverse {
+                    flex-direction: row-reverse;
+                }
+                
+                .project-image-container,
+                .project-content {
+                    width: 50%;
+                }
+            }
+            
+            /* Animation */
+            @keyframes float-orbit {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-5px); }
+                100% { transform: translateY(0px); }
+            }
+            
+            .float-orbit {
+                animation: float-orbit 4s ease-in-out infinite;
+            }
+            </style>
+        
+        <!-- Project 1: Image Left, Text Right -->
+        <div class="project-container">
+            <div class="project-image-container float-orbit">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="TCG GONG KULIM" class="project-image">
+            </div>
+            <div class="project-content">
+                <h3 class="text-3xl font-bold text-orange-400 mb-4">TCG GONG KULIM</h3>
+                <p class="text-gray-300 text-lg mb-6">A state-of-the-art facility featuring innovative mechanical and
+                    electrical systems designed for maximum efficiency and sustainability.</p>
             </div>
         </div>
-    </section>
+        
+        <!-- Project 2: Text Left, Image Right -->
+        <div class="project-container reverse">
+            <div class="project-image-container float-orbit">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="SEKOLAH HENRY GURNEY" class="project-image">
+            </div>
+            <div class="project-content">
+                <h3 class="text-3xl font-bold text-orange-400 mb-4">SEKOLAH HENRY GURNEY</h3>
+                <p class="text-gray-300 text-lg mb-6">Complete structural engineering and electrical system
+                    implementation for this educational institution.</p>
+        
+            </div>
+        </div>
+        
+        <!-- Project 3: Image Left, Text Right -->
+        <div class="project-container">
+            <div class="project-image-container float-orbit">
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="ECO HAVEN" class="project-image">
+            </div>
+            <div class="project-content">
+                <h3 class="text-3xl font-bold text-orange-400 mb-4">ECO HAVEN</h3>
+                <p class="text-gray-300 text-lg mb-6">A sustainable commercial complex featuring solar energy solutions
+                    and advanced HVAC automation.</p>
+               
+            </div>
+        </div>
+        
+        <!-- Project 4: Text Left, Image Right -->
+        <div class="project-container reverse">
+            <div class="project-image-container float-orbit">
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="TIMBER RIDGE TOWERS" class="project-image">
+            </div>
+            <div class="project-content">
+                <h3 class="text-3xl font-bold text-orange-400 mb-4">TIMBER RIDGE TOWERS</h3>
+                <p class="text-gray-300 text-lg mb-6">Comprehensive electrical wiring and structural solutions for this
+                    modern residential complex.</p>
+                
+            </div>
+        </div>
+        
+        <!-- Project 5: Image Left, Text Right -->
+        <div class="project-container">
+            <div class="project-image-container float-orbit">
+                <img src="https://images.unsplash.com/photo-1481253127861-534498168948?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="MARINA BAY COMPLEX" class="project-image">
+            </div>
+            <div class="project-content">
+                <h3 class="text-3xl font-bold text-orange-400 mb-4">MARINA BAY COMPLEX</h3>
+                <p class="text-gray-300 text-lg mb-6">Waterproofing, structural repairs, and advanced electrical
+                    systems implementation for this waterfront development.</p>
+                
+            </div>
+        </div>
+        
+        <!-- Project 6: Text Left, Image Right -->
+        <div class="project-container reverse">
+            <div class="project-image-container float-orbit">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="SKYLINE CENTER" class="project-image">
+            </div>
+            <div class="project-content">
+                <h3 class="text-3xl font-bold text-orange-400 mb-4">SKYLINE CENTER</h3>
+                <p class="text-gray-300 text-lg mb-6">Complete project management including installation of 33/11kV
+                    distribution systems and standby generators.</p>
+                
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="bg-black py-12">
